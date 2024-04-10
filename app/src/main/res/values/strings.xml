@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Sabor Mexicano</string>
+    <string name="btnMenu">Clave A - Menu Comida Mexicana</string>
+    <string name="btnBelleza">Clave B - Sala de belleza</string>
+    <string name="btnFarmacia">Clave C - Farmacia</string>
 </resources>
