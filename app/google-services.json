@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1047606256156",
+    "firebase_url": "https://sabormexicano-4d1df-default-rtdb.firebaseio.com",
+    "project_id": "sabormexicano-4d1df",
+    "storage_bucket": "sabormexicano-4d1df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047606256156:android:3b9beb447970b56d9175d9",
+        "android_client_info": {
+          "package_name": "com.example.desafio2dsm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMIhOoXRlMmJl_Sax1HqmyEVglzGdE2IA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
