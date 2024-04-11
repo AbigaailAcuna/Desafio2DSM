@@ -39,4 +39,12 @@
         android:textColor="@color/black"
         android:layout_gravity="end"/>
 
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Finalizar compra"
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>
