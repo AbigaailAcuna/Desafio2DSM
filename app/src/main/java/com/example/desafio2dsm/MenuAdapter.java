@@ -43,15 +43,14 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> i
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MenuItem menuItem = menuItems.get(position);
         holder.nombreTextView.setText(menuItem.getNombre());
-        holder.platoTextView.setText("Plato"); // Puedes establecer el valor adecuado aquí
-        holder.precioTextView.setText(String.valueOf(menuItem.getPrecio())); // Puedes ajustar el formato según necesites
+        holder.precioTextView.setText("$"+String.valueOf(menuItem.getPrecio())); // Puedes ajustar el formato según necesites
 
         // Establecer onClickListener para el botón Agregar
         holder.agregarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Mostrar un Toast con el ID del item al que se hizo clic
-                Toast.makeText(v.getContext(), "ID del item: " + menuItem.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Agregó al carrito: " + menuItem.getNombre(), Toast.LENGTH_SHORT).show();
 
                 // Agregar el elemento al conjunto de elementos seleccionados
                 selectedItems.add(menuItem);
@@ -95,14 +94,12 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> i
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView nombreTextView;
-        TextView platoTextView;
         TextView precioTextView;
         Button agregarButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nombreTextView = itemView.findViewById(R.id.nombreTextView);
-            platoTextView = itemView.findViewById(R.id.platoTextView);
             precioTextView = itemView.findViewById(R.id.precioTextView);
             agregarButton = itemView.findViewById(R.id.agregarButton);
         }

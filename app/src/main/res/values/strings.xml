@@ -13,6 +13,8 @@
     <string name="SubTotal">Subtotal: </string>
     <string name="Fecha">Fecha: </string>
     <string name="BtnCarrito">Ir al carrito</string>
+    <string name="BtnHistorial">Ir al historial</string>
+    <string name="BtnRegresar">Regresar</string>
     <string name="BtnAgregar">Agregar</string>
     <string name="Menu">Menu</string>
 

@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Carrito extends AppCompatActivity {
 
     Button btnFinalizar;
+
+    Button btnRegresar;
     ArrayList<MenuItem> selectedItems; // Variable para almacenar los elementos seleccionados
     HashMap<String, Integer> itemCountMap; // Mapa para almacenar la cantidad de cada elemento
 
@@ -132,5 +134,15 @@ public class Carrito extends AppCompatActivity {
                 startActivity(new Intent(Carrito.this,Finalizar.class));
             }
         });
+
+        btnRegresar=findViewById(R.id.btnRegresar);
+
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Carrito.this,Menu.class));
+            }
+        });
     }
-}
+    }
+

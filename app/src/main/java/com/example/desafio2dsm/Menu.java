@@ -25,6 +25,8 @@ public class Menu extends AppCompatActivity {
     private DatabaseReference databaseReference;
 
     Button btnCarrito;
+    Button btnHistorial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,15 @@ public class Menu extends AppCompatActivity {
 
                 // Iniciar la actividad Carrito
                 startActivity(intent);
+            }
+
+        });
+
+        btnHistorial=findViewById(R.id.btnHistorial);
+        btnHistorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Menu.this,Historial.class));
             }
 
         });
