@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class Carrito extends AppCompatActivity {
 
@@ -17,18 +21,57 @@ public class Carrito extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
 
-        // Recibir los elementos seleccionados del Intent
+        LinearLayout layoutSelectedItems = findViewById(R.id.layout_selected_items);
+        DecimalFormat df = new DecimalFormat("#.##");
+        TextView totalTextView = findViewById(R.id.text_total); // Obtener referencia al TextView para el total
+
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("selectedItems")) {
             ArrayList<MenuItem> selectedItems = (ArrayList<MenuItem>) intent.getSerializableExtra("selectedItems");
+            double total = 0.0; // Inicializar la variable total
 
-            // Ahora puedes trabajar con los objetos MenuItem como desees
             for (MenuItem item : selectedItems) {
-                Log.d("Carrito", "Elemento seleccionado: " + item.getId() + ", " + item.getNombre() + ", " + item.getPrecio());
-                // Haz lo que necesites con cada elemento seleccionado
+                // Crear un LinearLayout horizontal para cada elemento seleccionado
+                LinearLayout itemLayout = new LinearLayout(this);
+                itemLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                itemLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+                // TextView para el nombre del artículo
+                TextView itemName = new TextView(this);
+                itemName.setText(item.getNombre());
+                itemName.setLayoutParams(new LinearLayout.LayoutParams(
+                        0,
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        5.0f
+                ));
+
+                // TextView para el precio
+                TextView itemPrice = new TextView(this);
+                itemPrice.setText("$" + item.getPrecio());
+                itemPrice.setLayoutParams(new LinearLayout.LayoutParams(
+                        0,
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        2.0f
+                ));
+
+
+                itemLayout.addView(itemName);
+                itemLayout.addView(itemPrice);
+
+
+                layoutSelectedItems.addView(itemLayout);
+
+                // Sumar el precio al total
+                total += item.getPrecio();
             }
-        } else {
-            Log.d("Carrito", "No se recibieron elementos seleccionados");
+
+            // Actualizar el texto del TextView para mostrar el total
+            totalTextView.setText("Total: $" + df.format(total));
         }
     }
+
+
 }
