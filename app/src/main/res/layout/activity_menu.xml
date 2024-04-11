@@ -12,11 +12,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <Button
+                android:id="@+id/btnCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Ir al carrito"
+                android:textColor="@android:color/white"/>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menuRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false" />
+
         </LinearLayout>
+
     </ScrollView>
 </RelativeLayout>

@@ -2,7 +2,10 @@ package com.example.desafio2dsm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,12 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Menu extends AppCompatActivity {
     private RecyclerView menuRecyclerView;
     private MenuAdapter menuAdapter;
     private DatabaseReference databaseReference;
 
+    Button btnCarrito;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,28 @@ public class Menu extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Menu");
 
         loadMenuData();
+
+        btnCarrito=findViewById(R.id.btnCarrito);
+        btnCarrito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtener los elementos seleccionados del adaptador
+                Set<MenuItem> selectedItems = menuAdapter.getSelectedItems();
+
+                // Convertir el conjunto de elementos seleccionados a un ArrayList
+                ArrayList<MenuItem> selectedItemsList = new ArrayList<>(selectedItems);
+
+                // Crear un Intent para abrir la actividad Carrito
+                Intent intent = new Intent(Menu.this, Carrito.class);
+
+                // Agregar el ArrayList de elementos seleccionados como dato extra en el Intent
+                intent.putExtra("selectedItems", selectedItemsList);
+
+                // Iniciar la actividad Carrito
+                startActivity(intent);
+            }
+
+        });
     }
 
     private void loadMenuData() {
@@ -42,16 +69,11 @@ public class Menu extends AppCompatActivity {
                 List<MenuItem> menuItems = new ArrayList<>();
                 for (DataSnapshot categorySnapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot itemSnapshot : categorySnapshot.getChildren()) {
+                        String id = itemSnapshot.child("id").getValue(String.class);
                         String nombre = itemSnapshot.child("nombre").getValue(String.class);
                         double precio = itemSnapshot.child("precio").getValue(Double.class);
-                        // Check if the current category is "Bebida"
-                        if (categorySnapshot.getKey().equals("Bebida")) {
-                            menuItems.add(new MenuItem(nombre, precio));
-                        } else if (categorySnapshot.getKey().equals("Comida")) {
-                            // Access the "plato" field for the "Comida" collection
-                            String plato = itemSnapshot.child("plato").getValue(String.class);
-                            menuItems.add(new MenuItem(plato, precio));
-                        }
+                            menuItems.add(new MenuItem(id, nombre, precio));
+
                     }
                 }
                 menuAdapter.setMenuItems(menuItems);
