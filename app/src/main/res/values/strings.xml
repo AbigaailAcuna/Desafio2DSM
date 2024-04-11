@@ -4,4 +4,18 @@
     <string name="btnBelleza">Clave B - Sala de belleza</string>
     <string name="btnFarmacia">Clave C - Farmacia</string>
     <string name="finalizar_compra">Compra realizada!</string>
+    <string name="ResumenCompra">Resumen de la compra</string>
+    <string name="btnFinalizarCompra">Finalizar Compra</string>
+    <string name="Historial">Historial</string>
+    <string name="Nombre">Nombre: </string>
+    <string name="Precio">Precio: </string>
+    <string name="Cantidad">Cantidad: </string>
+    <string name="SubTotal">Subtotal: </string>
+    <string name="Fecha">Fecha: </string>
+    <string name="BtnCarrito">Ir al carrito</string>
+    <string name="BtnAgregar">Agregar</string>
+    <string name="Menu">Menu</string>
+
+
+
 </resources>
