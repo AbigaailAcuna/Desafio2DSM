@@ -13,12 +13,12 @@ public class Finalizar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalizar);
 
-        int Tiempo = 4000;
+        int Tiempo = 2500;
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Finalizar.this, Menu.class));
+                startActivity(new Intent(Finalizar.this, Historial.class));
                 finish();
             }
         }, Tiempo);

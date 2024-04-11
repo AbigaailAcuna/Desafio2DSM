@@ -129,7 +129,7 @@ public class Carrito extends AppCompatActivity {
                 Log.d("Carrito", "Elementos agregados al historial de compras");
 
                 //Navegar a pagina de historial
-                startActivity(new Intent(Carrito.this,Historial.class));
+                startActivity(new Intent(Carrito.this,Finalizar.class));
             }
         });
     }
