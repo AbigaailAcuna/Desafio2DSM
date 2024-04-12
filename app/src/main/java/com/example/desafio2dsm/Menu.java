@@ -70,7 +70,8 @@ public class Menu extends AppCompatActivity {
     }
     public void onCarritoButtonClick(View view) {
         // Obtener los elementos seleccionados del adaptador
-        Set<MenuItem> selectedItems = menuAdapter.getSelectedItems();
+        List<MenuItem> selectedItems = menuAdapter.getSelectedItems();
+
 
         // Convertir el conjunto de elementos seleccionados a un ArrayList
         ArrayList<MenuItem> selectedItemsList = new ArrayList<>(selectedItems);

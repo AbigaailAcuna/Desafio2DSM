@@ -1,6 +1,5 @@
 package com.example.desafio2dsm;
 
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,24 +10,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import android.content.Intent;
-import android.view.View;
 
 import java.io.Serializable;
+
 public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> implements Serializable {
 
     private List<MenuItem> menuItems = new ArrayList<>();
-    private Set<MenuItem> selectedItems;
+    private List<MenuItem> selectedItems; // Cambiamos a una lista para permitir elementos repetidos
 
-    public Set<MenuItem> getSelectedItems() {
+    public List<MenuItem> getSelectedItems() {
         return selectedItems;
     }
+
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
-        this.selectedItems = new HashSet<>();
+        this.selectedItems = new ArrayList<>(); // Inicializamos la lista de elementos seleccionados
         notifyDataSetChanged();
     }
 
@@ -43,22 +41,22 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> i
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MenuItem menuItem = menuItems.get(position);
         holder.nombreTextView.setText(menuItem.getNombre());
-        holder.precioTextView.setText("$"+String.valueOf(menuItem.getPrecio())); // Puedes ajustar el formato según necesites
+        holder.precioTextView.setText("$" + String.valueOf(menuItem.getPrecio())); // Ajustamos el formato según necesites
 
         // Establecer onClickListener para el botón Agregar
         holder.agregarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Mostrar un Toast con el ID del item al que se hizo clic
+                // Mostrar un Toast con el nombre del elemento al que se hizo clic
                 Toast.makeText(v.getContext(), "Agregó al carrito: " + menuItem.getNombre(), Toast.LENGTH_SHORT).show();
 
-                // Agregar el elemento al conjunto de elementos seleccionados
+                // Agregar el elemento a la lista de elementos seleccionados
                 selectedItems.add(menuItem);
 
                 // Log para verificar los elementos seleccionados
                 Log.d("MenuAdapter", "Elementos seleccionados:");
 
-                // Construir la representación detallada de cada elemento
+                // Construir la representación detallada de cada elemento seleccionado
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append("[");
                 for (MenuItem item : selectedItems) {
@@ -77,15 +75,8 @@ public class  MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> i
                 // Imprimir la representación detallada en el log
                 Log.d("MenuAdapter", "Elementos seleccionados: " + stringBuilder.toString());
             }
-
-
-
-
         });
     }
-
-
-
 
     @Override
     public int getItemCount() {
