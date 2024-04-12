@@ -12,11 +12,15 @@
     <string name="Cantidad">Cantidad: </string>
     <string name="SubTotal">Subtotal: </string>
     <string name="Fecha">Fecha: </string>
+    <string name="BtnInicio">Ir a Menu</string>
     <string name="BtnCarrito">Ir al carrito</string>
     <string name="BtnHistorial">Ir al historial</string>
     <string name="BtnRegresar">Regresar</string>
     <string name="BtnAgregar">Agregar</string>
-    <string name="Menu">Menu</string>
+    <string name="BtnFinalizar">Finalizar</string>
+    <string name="Menu">Menú</string>
+    <string name="back">Back</string>
+
 
 
 

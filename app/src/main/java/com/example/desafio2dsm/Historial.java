@@ -1,6 +1,7 @@
 package com.example.desafio2dsm;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class Historial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial);
 
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,11 +54,12 @@ public class Historial extends AppCompatActivity {
                     for (DataSnapshot itemSnapshot : historialSnapshot.getChildren()) {
                         String nombre = itemSnapshot.child("nombre").getValue(String.class);
                         double precio = itemSnapshot.child("precio").getValue(Double.class);
-                        int cantidad = itemSnapshot.child("cantidad").getValue(Integer.class);
+                        //int cantidad = itemSnapshot.child("cantidad").getValue(Integer.class);
                         double subtotal = itemSnapshot.child("subtotal").getValue(Double.class);
                         String fecha = itemSnapshot.child("fecha").getValue(String.class);
 
-                        HistorialItem item = new HistorialItem(nombre, precio, cantidad, subtotal, fecha);
+                        //HistorialItem item = new HistorialItem(nombre, precio, cantidad, subtotal, fecha);
+                        HistorialItem item = new HistorialItem(nombre, precio, subtotal, fecha);
                         historialItemList.add(item);
                     }
                 }
@@ -69,13 +72,28 @@ public class Historial extends AppCompatActivity {
             }
         });
 
-        btnRegresar=findViewById(R.id.btnRegresar);
+        btnRegresar = findViewById(R.id.btnRegresar);
 
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Historial.this,Menu.class));
+                startActivity(new Intent(Historial.this, Menu.class));
             }
         });
+    }
+
+    public void onCarritoButtonClick(View view) {
+        // Abrir la actividad Menu
+        startActivity(new Intent(Historial.this, Carrito.class));
+
+    }
+
+    public void onInicioButtonClick(View view) {
+        // Abrir la actividad Historial
+        startActivity(new Intent(Historial.this, Menu.class));
+    }
+
+    public void onHistorialButtonClick(View view) {
+        // Ya esta en historial, no hace nada
     }
 }

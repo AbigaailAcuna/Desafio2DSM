@@ -24,8 +24,6 @@ public class Menu extends AppCompatActivity {
     private MenuAdapter menuAdapter;
     private DatabaseReference databaseReference;
 
-    Button btnCarrito;
-    Button btnHistorial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,36 +39,6 @@ public class Menu extends AppCompatActivity {
 
         loadMenuData();
 
-        btnCarrito=findViewById(R.id.btnCarrito);
-        btnCarrito.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Obtener los elementos seleccionados del adaptador
-                Set<MenuItem> selectedItems = menuAdapter.getSelectedItems();
-
-                // Convertir el conjunto de elementos seleccionados a un ArrayList
-                ArrayList<MenuItem> selectedItemsList = new ArrayList<>(selectedItems);
-
-                // Crear un Intent para abrir la actividad Carrito
-                Intent intent = new Intent(Menu.this, Carrito.class);
-
-                // Agregar el ArrayList de elementos seleccionados como dato extra en el Intent
-                intent.putExtra("selectedItems", selectedItemsList);
-
-                // Iniciar la actividad Carrito
-                startActivity(intent);
-            }
-
-        });
-
-        btnHistorial=findViewById(R.id.btnHistorial);
-        btnHistorial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Menu.this,Historial.class));
-            }
-
-        });
     }
 
     private void loadMenuData() {
@@ -95,6 +63,31 @@ public class Menu extends AppCompatActivity {
                 // Handle error
             }
         });
+    }
+
+    public void onInicioButtonClick(View view) {
+        // Ya esta en pantalla inicio, no hace nada
+    }
+    public void onCarritoButtonClick(View view) {
+        // Obtener los elementos seleccionados del adaptador
+        Set<MenuItem> selectedItems = menuAdapter.getSelectedItems();
+
+        // Convertir el conjunto de elementos seleccionados a un ArrayList
+        ArrayList<MenuItem> selectedItemsList = new ArrayList<>(selectedItems);
+
+        // Crear un Intent para abrir la actividad Carrito
+        Intent intent = new Intent(Menu.this, Carrito.class);
+
+        // Agregar el ArrayList de elementos seleccionados como dato extra en el Intent
+        intent.putExtra("selectedItems", selectedItemsList);
+
+        // Iniciar la actividad Carrito
+        startActivity(intent);
+    }
+
+    public void onHistorialButtonClick(View view) {
+        // Abrir la actividad Historial
+        startActivity(new Intent(Menu.this, Historial.class));
     }
 
 }

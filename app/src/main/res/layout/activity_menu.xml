@@ -1,62 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Menu"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-      />
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation_bar">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnCarrito"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:text="@string/BtnCarrito"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="50dp"/>
+                android:text="@string/Menu"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/red"
+                android:layout_marginTop="10dp"
+                android:layout_above="@id/navigation_bar"/>
 
-            <Button
-                android:id="@+id/btnHistorial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:text="@string/BtnHistorial"
-                android:textColor="@android:color/white"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="30dp"/>
-
-        </LinearLayout>
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menuRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false" />
 
         </LinearLayout>
-
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <include layout="@layout/navigation_bar"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

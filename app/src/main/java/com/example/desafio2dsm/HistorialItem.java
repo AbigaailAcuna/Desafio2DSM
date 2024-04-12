@@ -3,7 +3,7 @@ package com.example.desafio2dsm;
 public class HistorialItem {
     private String nombre;
     private double precio;
-    private int cantidad;
+    //private int cantidad;
     private double subtotal;
     private String fecha;
 
@@ -11,10 +11,10 @@ public class HistorialItem {
         // Constructor vacío requerido por Firebase
     }
 
-    public HistorialItem(String nombre, double precio, int cantidad, double subtotal, String fecha) {
+    public HistorialItem(String nombre, double precio/*, int cantidad*/, double subtotal, String fecha) {
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        //this.cantidad = cantidad;
         this.subtotal = subtotal;
         this.fecha = fecha;
     }
@@ -36,13 +36,13 @@ public class HistorialItem {
         this.precio = precio;
     }
 
-    public int getCantidad() {
+    /*public int getCantidad() {
         return cantidad;
-    }
+    }*/
 
-    public void setCantidad(int cantidad) {
+   /* public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
+    }*/
 
     public double getSubtotal() {
         return subtotal;

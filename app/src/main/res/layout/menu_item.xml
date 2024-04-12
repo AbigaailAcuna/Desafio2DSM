@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/BtnAgregar"
-            android:textColor="@android:color/white"/>
+            android:background="@color/white"
+            android:textColor="@android:color/holo_red_light"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

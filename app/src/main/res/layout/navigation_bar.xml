@@ -1,0 +1,42 @@
+<!-- navigation_bar.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@drawable/navbar_background">
+
+    <ImageButton
+        android:id="@+id/btnInicio"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_home"
+        android:background="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:padding="8dp"
+        android:onClick="onInicioButtonClick"/>
+
+    <!-- Botón de Carrito -->
+    <ImageButton
+        android:id="@+id/btnCarrito"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_cart"
+        android:background="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:padding="8dp"
+        android:onClick="onCarritoButtonClick"/>
+
+    <!-- Botón de Historial -->
+    <ImageButton
+        android:id="@+id/btnHistorial"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_history"
+        android:background="?android:attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:padding="8dp"
+        android:onClick="onHistorialButtonClick"/>
+</LinearLayout>

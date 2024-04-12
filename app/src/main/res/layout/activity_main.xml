@@ -20,7 +20,9 @@
         android:text="@string/btnMenu"
         android:layout_below="@id/tvTitulo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:background="@color/rgb"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnBelleza"
@@ -29,7 +31,9 @@
         android:text="@string/btnBelleza"
         android:layout_below="@id/btnMenu"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@color/rgb"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnFarmacia"
@@ -38,6 +42,8 @@
         android:text="@string/btnFarmacia"
         android:layout_below="@id/btnBelleza"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@color/rgb"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>

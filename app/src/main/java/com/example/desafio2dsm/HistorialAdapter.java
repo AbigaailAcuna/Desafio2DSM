@@ -33,7 +33,7 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.Hist
         HistorialItem item = historialItemList.get(position);
         holder.nombreTextView.setText(item.getNombre());
         holder.precioTextView.setText(String.valueOf(item.getPrecio()));
-        holder.cantidadTextView.setText(String.valueOf(item.getCantidad()));
+        //holder.cantidadTextView.setText(String.valueOf(item.getCantidad()));
         holder.subtotalTextView.setText(String.valueOf(item.getSubtotal()));
         holder.fechaTextView.setText(item.getFecha());
     }
@@ -50,7 +50,7 @@ public class HistorialAdapter extends RecyclerView.Adapter<HistorialAdapter.Hist
             super(itemView);
             nombreTextView = itemView.findViewById(R.id.nombreTextView);
             precioTextView = itemView.findViewById(R.id.precioTextView);
-            cantidadTextView = itemView.findViewById(R.id.cantidadTextView);
+            //cantidadTextView = itemView.findViewById(R.id.cantidadTextView);
             subtotalTextView = itemView.findViewById(R.id.subtotalTextView);
             fechaTextView = itemView.findViewById(R.id.fechaTextView);
         }

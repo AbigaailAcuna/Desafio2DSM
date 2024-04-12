@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import android.view.View;
 import android.widget.Button;
@@ -143,6 +144,19 @@ public class Carrito extends AppCompatActivity {
                 startActivity(new Intent(Carrito.this,Menu.class));
             }
         });
+    }
+    public void onInicioButtonClick(View view) {
+        // Abrir la actividad Menu
+        startActivity(new Intent(Carrito.this, Menu.class));
+
+    }
+
+    public void onHistorialButtonClick(View view) {
+        // Abrir la actividad Historial
+        startActivity(new Intent(Carrito.this, Historial.class));
+    }
+    public void onCarritoButtonClick(View view) {
+        // Ya esta en carrito, no hace nada
     }
     }
 
