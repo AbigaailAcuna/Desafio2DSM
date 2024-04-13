@@ -1,6 +1,6 @@
 # Desafio 2 DSM
 
-Desarrollo de una aplicación movil en android studio usando Java, aplicación a presentar como Desafio Practico número 2 de la materia de Desarrollo de Software para Móviles G04L
+Desarrollo de una aplicación movil en Android Studio usando Java, aplicación a presentar como Desafio Practico número 2 de la materia de Desarrollo de Software para Móviles G04L
 
 # Autores ✒️
 
