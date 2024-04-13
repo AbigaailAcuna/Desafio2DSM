@@ -4,18 +4,18 @@ public class HistorialItem {
     private String nombre;
     private double precio;
     //private int cantidad;
-    private double subtotal;
+    //private double subtotal;
     private String fecha;
 
     public HistorialItem() {
         // Constructor vacío requerido por Firebase
     }
 
-    public HistorialItem(String nombre, double precio/*, int cantidad*/, double subtotal, String fecha) {
+    public HistorialItem(String nombre, double precio/*, int cantidad, double subtotal*/, String fecha) {
         this.nombre = nombre;
         this.precio = precio;
         //this.cantidad = cantidad;
-        this.subtotal = subtotal;
+       // this.subtotal = subtotal;
         this.fecha = fecha;
     }
 
@@ -36,21 +36,6 @@ public class HistorialItem {
         this.precio = precio;
     }
 
-    /*public int getCantidad() {
-        return cantidad;
-    }*/
-
-   /* public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }*/
-
-    public double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
-    }
 
     public String getFecha() {
         return fecha;

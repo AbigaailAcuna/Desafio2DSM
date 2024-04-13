@@ -54,12 +54,9 @@ public class Historial extends AppCompatActivity {
                     for (DataSnapshot itemSnapshot : historialSnapshot.getChildren()) {
                         String nombre = itemSnapshot.child("nombre").getValue(String.class);
                         double precio = itemSnapshot.child("precio").getValue(Double.class);
-                        //int cantidad = itemSnapshot.child("cantidad").getValue(Integer.class);
-                        double subtotal = itemSnapshot.child("subtotal").getValue(Double.class);
                         String fecha = itemSnapshot.child("fecha").getValue(String.class);
 
-                        //HistorialItem item = new HistorialItem(nombre, precio, cantidad, subtotal, fecha);
-                        HistorialItem item = new HistorialItem(nombre, precio, subtotal, fecha);
+                        HistorialItem item = new HistorialItem(nombre, precio, fecha);
                         historialItemList.add(item);
                     }
                 }
@@ -68,7 +65,7 @@ public class Historial extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Manejar errores de base de datos
+
             }
         });
 
@@ -83,13 +80,13 @@ public class Historial extends AppCompatActivity {
     }
 
     public void onCarritoButtonClick(View view) {
-        // Abrir la actividad Menu
+        // Abrir la actividad carrito
         startActivity(new Intent(Historial.this, Carrito.class));
 
     }
 
     public void onInicioButtonClick(View view) {
-        // Abrir la actividad Historial
+        // Abrir la actividad menu
         startActivity(new Intent(Historial.this, Menu.class));
     }
 

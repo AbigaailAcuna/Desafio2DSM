@@ -17,7 +17,7 @@
             android:layout_width="250dp"
             android:layout_height="250dp"
             app:lottie_imageAssetsFolder="assets"
-            app:lottie_fileName="finalizar.json"
+            app:lottie_fileName="burrito.json"
             app:lottie_loop="true"
             app:lottie_autoPlay="true" />
 
